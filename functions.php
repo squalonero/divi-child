@@ -3,9 +3,18 @@
 class skh_DiviChild
 {
 
+    private static int $load_priority = 1;
+
     static function init()
     {
+        require_once 'constants.php';
         add_action('wp_enqueue_scripts', [__CLASS__, 'enqueue_styles']);
+        add_action( 'init', [__CLASS__, 'autoload'], self::$load_priority );
+    }
+
+    static function autoload()
+    {
+        require_once 'autoload.php';
     }
 
     static function enqueue_styles()
