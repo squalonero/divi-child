@@ -1620,21 +1620,24 @@ class skh_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
 
 				<?php if ( 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote' ) ) || post_password_required( $post ) ) { ?>
 					<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) || post_password_required( $post ) ) { ?>
+						<div class="skh-post-meta-wrapper">
 						<?php
-						if ( 'on' === $show_author || 'on' === $show_date || 'on' === $show_categories || 'on' === $show_comments ) {
-							$multi_view->render_element(
-								array(
-									'tag'            => 'p',
-									'content'        => '{{post_meta_removes}}',
-									'attrs'          => array(
-										'class' => 'post-meta',
+							if ( 'on' === $show_author || 'on' === $show_date || 'on' === $show_categories || 'on' === $show_comments ) {
+								$multi_view->render_element(
+									array(
+										'tag'            => 'p',
+										'content'        => '{{post_meta_removes}}',
+										'attrs'          => array(
+											'class' => 'post-meta skh-post-meta',
+										),
+										'hover_selector' => '%%order_class%% .et_pb_post',
 									),
-									'hover_selector' => '%%order_class%% .et_pb_post',
-								),
-								true
-							);
-						}
-					?>
+									true
+								);
+							}
+						?>
+						<button class="skh-post-meta-share" post-id="<?= get_the_ID(); ?>">skh_share</button>
+						</div>
 					<<?php echo et_core_intentionally_unescaped( $processed_header_level, 'fixed_string' ); ?> class="entry-title"><a href="<?php esc_url( the_permalink() ); ?>"><?php the_title(); ?></a></<?php echo et_core_intentionally_unescaped( $processed_header_level, 'fixed_string' ); ?>>
 				<?php } ?>
 
@@ -1647,7 +1650,7 @@ class skh_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
 							'tag'            => 'div',
 							'content'        => '{{post_content}}',
 							'attrs'          => array(
-								'class' => 'post-content-inner',
+								'class' => 'post-content-inner skh-post-content-inner',
 							),
 							'visibility'     => array(
 								'show_excerpt' => 'on',

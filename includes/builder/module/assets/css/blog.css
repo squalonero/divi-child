@@ -1,0 +1,31 @@
+.skh-post-content-inner > p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.skh-post-meta,
+p:not(.has-background):last-of-type.skh-post-meta {
+  padding: 20px 0;
+  margin-bottom: unset;
+}
+
+.skh-post-meta > a[rel="tag"] {
+  border: 1px solid var(--skh-light-blue);
+  border-radius: 4px;
+  padding: 6px 10px;
+}
+
+.skh-post-meta-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.skh-post-meta-share{
+    background-color: unset;
+    border: unset;
+    cursor: pointer;
+}

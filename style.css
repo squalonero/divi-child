@@ -11,12 +11,9 @@
 /* =Theme customization starts here
 ------------------------------------------------------- */
 
-@import 'assets/css/accessibility.css'
+@import 'assets/css/variables.css';
+@import 'assets/css/accessibility.css';
 
-/**
-Test if theme css is working
-*/
-/* *
-{
-    border: 1px solid red;
-} */
+/* MODULES STYLE */
+
+@import 'includes/builder/module/assets/css/blog.css'
