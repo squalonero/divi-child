@@ -21,17 +21,18 @@ class skh_DiviChild
     {
         $parenthandle = 'divi-style';
         $theme = wp_get_theme();
+        $version = defined('WP_DEBUG') && WP_DEBUG ? $theme->parent()->get('Version') . time() : $theme->parent()->get('Version');
         wp_enqueue_style(
             $parenthandle,
             get_template_directory_uri() . '/style.css',
             array(), // if the parent theme code has a dependency, copy it to here
-            $theme->parent()->get('Version')
+            $version
         );
         wp_enqueue_style(
             'divi-child-style',
             get_stylesheet_uri(),
             array($parenthandle),
-            $theme->get('Version')
+            $version
         );
     }
 }
