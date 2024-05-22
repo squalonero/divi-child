@@ -9,12 +9,18 @@ class skh_DiviChild
     {
         require_once 'constants.php';
         add_action('wp_enqueue_scripts', [__CLASS__, 'enqueue_styles']);
-        add_action( 'init', [__CLASS__, 'autoload'], self::$load_priority );
+        add_action('init', [__CLASS__, 'autoload'], self::$load_priority);
+        add_action('after_setup_theme', [__CLASS__, 'load_textdomain']);
     }
 
     static function autoload()
     {
         require_once 'autoload.php';
+    }
+
+    static function load_textdomain()
+    {
+        load_child_theme_textdomain("stackhouse", DIVI_CHILD_BP . '/languages');
     }
 
     static function enqueue_styles()
