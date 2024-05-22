@@ -18,14 +18,40 @@ p:not(.has-background):last-of-type.skh-post-meta {
   padding: 6px 10px;
 }
 
-.skh-post-meta-wrapper{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.skh-post-meta-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.skh-post-meta-share{
-    background-color: unset;
-    border: unset;
-    cursor: pointer;
+.skh-post-meta-share {
+  background-color: unset;
+  border: unset;
+  cursor: pointer;
+}
+
+.skh-blog-message-wrapper {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99999;
+}
+
+.skh-blog-message {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px 10px;
+  display: none;
+  border-radius: 4px;
+}
+
+.skh-blog-message.skh-success {
+  background-color: green;
+  color: #fff;
+}
+
+.skh-blog-message.skh-error {
+  background-color: red;
+  color: #fff;
 }
