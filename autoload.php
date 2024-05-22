@@ -5,6 +5,7 @@ class skh_DiviChild_Autoload
     private static ?skh_DiviChild_Autoload $instance = null;
     private static RecursiveIteratorIterator $iterator;
     private static array $classlist = [];
+    private const ASSETS_URL = DIVI_CHILD_MODULES_URL."/assets";
 
     private function __construct()
     {
@@ -12,6 +13,7 @@ class skh_DiviChild_Autoload
         self::$iterator = new RecursiveIteratorIterator($dir);
         add_action('et_builder_ready', [__CLASS__, 'autoload_divi_child_modules']);
         add_filter('et_module_classes', [__CLASS__, 'divi_custom_module_class']);
+        self::register_divi_child_modules_js();
     }
 
     public static function getInstance()
@@ -25,7 +27,7 @@ class skh_DiviChild_Autoload
         return self::$instance;
     }
 
-    private static function process_divi_child_modules($cb)
+    private static function process_divi_child_modules(object $cb)
     {
         foreach (self::$iterator as $file)
         {
@@ -50,7 +52,6 @@ class skh_DiviChild_Autoload
         self::process_divi_child_modules(function ($file, $fname, $fpath, $fileFolders, $className)
         {
             $instance = new $className;
-            // remove_shortcode($instance::$shortcode);
             add_shortcode($instance::$shortcode, array($instance, '_shortcode_callback'));
         });
     }
@@ -65,6 +66,23 @@ class skh_DiviChild_Autoload
             }
         );
         return  array_merge($classlist, self::$classlist);
+    }
+
+    private static function register_divi_child_modules_js()
+    {
+        foreach (self::$iterator as $file)
+        {
+            $fname = $file->getFilename();
+            if (
+                preg_match('%\.js$%', $fname)
+            )
+            {
+                $fpath = $file->getPath();
+                $handle = str_replace('.js', '-js', $fname);
+                $ver = defined('WP_DEBUG') && WP_DEBUG ? time() : DIVI_CHILD_VERSION;
+                wp_register_script("skh-divi-child-$handle", self::ASSETS_URL."/js/$fname", ['jquery'], $ver);
+            }
+        }
     }
 }
 
