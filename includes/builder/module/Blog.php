@@ -1295,6 +1295,7 @@ class skh_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
 		// some themes do not include these styles/scripts so we need to enqueue them in this module to support audio post format
 		wp_enqueue_style( 'wp-mediaelement' );
 		wp_enqueue_script( 'wp-mediaelement' );
+		wp_enqueue_script( 'skh-divi-child-blog-js' );
 
 		// remove all filters from WP audio shortcode to make sure current theme doesn't add any elements into audio module
 		remove_all_filters( 'wp_audio_shortcode_library' );
