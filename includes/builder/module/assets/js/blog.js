@@ -20,7 +20,7 @@ $(document).ready(function () {
           })
           .then(() => {})
           .catch((error) => {
-            createMsg("error", "Error sharing");
+            createMsg("error", SKH_DIVI_CHILD_BLOG.labels.sharing_error);
             console.log("Error sharing", error);
           });
       } else {
@@ -37,7 +37,7 @@ $(document).ready(function () {
     } catch (e) {
       createMsg(
         "error",
-        "Share not supported on this browser, do it the old way."
+        SKH_DIVI_CHILD_BLOG.labels.clipboard_unsupported
       );
       console.error("Error copying to clipboard", e);
     }

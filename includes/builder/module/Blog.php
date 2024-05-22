@@ -1299,7 +1299,10 @@ class skh_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
 		wp_localize_script( 'skh-divi-child-blog-js', 'SKH_DIVI_CHILD_BLOG',
 		  	[
 				'labels' => [
-					'clipboard_text' => __('Article link copied to clipboard', 'stackhouse')
+					'clipboard_text_success' => __('Article link copied to clipboard', 'stackhouse'),
+					'clipboard_text_error' => __('Error during copy to clipboard', 'stackhouse'),
+					'clipboard_unsupported' => __('Share not supported on this browser, do it the old way.', 'stackhouse'),
+					'sharing_error' => __('Article not shared', 'stackhouse'),
 				]
 			]
 		  );
