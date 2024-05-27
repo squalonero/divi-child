@@ -30,6 +30,11 @@ p:not(.has-background):last-of-type.skh-post-meta {
   cursor: pointer;
 }
 
+.skh-post-meta-share > img {
+  max-width: 17px;
+  max-height: 18px;
+}
+
 .skh-blog-message-wrapper {
   position: fixed;
   inset: 0;
