@@ -33,7 +33,7 @@ $(document).ready(function () {
   const copyText = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
-      createMsg("success", SKH_DIVI_CHILD_BLOG.labels.clipboard_text);
+      createMsg("success", SKH_DIVI_CHILD_BLOG.labels.clipboard_text_success);
     } catch (e) {
       createMsg(
         "error",
