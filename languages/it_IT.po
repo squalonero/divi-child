@@ -1,4 +1,4 @@
-# Copyright (C) 2024 Mirco Cuccadu
+# Copyright (C) 2024 Spindox - Stackhouse
 # This file is distributed under the .
 msgid ""
 msgstr ""
@@ -28,7 +28,7 @@ msgid "Divi Child Theme"
 msgstr ""
 
 #. Author of the theme
-msgid "Mirco Cuccadu"
+msgid "Spindox - Stackhouse"
 msgstr ""
 
 #. Author URI of the theme
