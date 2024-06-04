@@ -1,5 +1,23 @@
 a:focus-visible,
-button:focus-visible{
-    z-index: 9999;
-    border: 1px solid red;
+button:focus-visible {
+  z-index: 9999;
+  border: 1px solid red;
+}
+
+#skip-to-content a,
+#skip-to-language a {
+  position: fixed;
+  transform: translateY(-100%);
+  left: 0;
+  right: 0;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  transition: 250ms;
+  padding: 10px 0;
+  font-size: 1rem;
+}
+#skip-to-content a:focus-visible,
+#skip-to-language a:focus-visible {
+  transform: none;
 }

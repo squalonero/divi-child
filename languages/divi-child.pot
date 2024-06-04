@@ -2,35 +2,40 @@
 # This file is distributed under the .
 msgid ""
 msgstr ""
-"Project-Id-Version: Divi Child 1.0.0\n"
+"Project-Id-Version: Divi Child 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/divi-child\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-05-22T11:04:33+00:00\n"
+"POT-Creation-Date: 2024-06-04T14:44:56+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.7.1\n"
+"X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: stackhouse\n"
 
 #. Theme Name of the theme
+#: style.css
 msgid "Divi Child"
 msgstr ""
 
 #. Theme URI of the theme
+#: style.css
 msgid "https://www.elegantthemes.com/gallery/divi/"
 msgstr ""
 
 #. Description of the theme
+#: style.css
 msgid "Divi Child Theme"
 msgstr ""
 
 #. Author of the theme
+#: style.css
 msgid "Mirco Cuccadu"
 msgstr ""
 
 #. Author URI of the theme
+#: style.css
 msgid "https://github.com/squalonero"
 msgstr ""
 
@@ -48,4 +53,16 @@ msgstr ""
 
 #: includes/builder/module/Blog.php:1305
 msgid "Article not shared"
+msgstr ""
+
+#: includes/builder/module/Blog.php:1651
+msgid "Share"
+msgstr ""
+
+#: templates/skip_to_content.php:2
+msgid "Skip to content"
+msgstr ""
+
+#: templates/skip_to_content.php:5
+msgid "Skip to select language"
 msgstr ""

@@ -1,11 +1,9 @@
-# Copyright (C) 2024 Mirco Cuccadu
-# This file is distributed under the .
 msgid ""
 msgstr ""
 "Project-Id-Version: Divi Child 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/divi-child\n"
 "POT-Creation-Date: 2024-05-22T11:04:33+00:00\n"
-"PO-Revision-Date: 2024-05-22 13:07+0200\n"
+"PO-Revision-Date: 2024-06-04 16:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -16,32 +14,37 @@ msgstr ""
 "X-Domain: stackhouse\n"
 
 #. Theme Name of the theme
+#: style.css
 msgid "Divi Child"
 msgstr ""
 
 #. Theme URI of the theme
+#: style.css
 msgid "https://www.elegantthemes.com/gallery/divi/"
 msgstr ""
 
 #. Description of the theme
+#: style.css
 msgid "Divi Child Theme"
 msgstr ""
 
 #. Author of the theme
+#: style.css
 msgid "Mirco Cuccadu"
 msgstr ""
 
 #. Author URI of the theme
+#: style.css
 msgid "https://github.com/squalonero"
 msgstr ""
 
 #: includes/builder/module/Blog.php:1302
 msgid "Article link copied to clipboard"
-msgstr "Collegamento copiato negli appunti."
+msgstr "Collegamento copiato negli appunti"
 
 #: includes/builder/module/Blog.php:1303
 msgid "Error during copy to clipboard"
-msgstr "Errore nel copiare il collegamento."
+msgstr "Errore nel copiare il collegamento"
 
 #: includes/builder/module/Blog.php:1304
 msgid "Share not supported on this browser, do it the old way."
@@ -49,4 +52,16 @@ msgstr "Condivisione non supportata in questo dispositivo."
 
 #: includes/builder/module/Blog.php:1305
 msgid "Article not shared"
-msgstr "Articolo non condiviso."
+msgstr "Articolo non condiviso"
+
+#: includes/builder/module/Blog.php:1651
+msgid "Share"
+msgstr "Condividi"
+
+#: templates/skip_to_content.php:2
+msgid "Skip to content"
+msgstr "Vai al contenuto"
+
+#: templates/skip_to_content.php:5
+msgid "Skip to select language"
+msgstr "Vai alla selezione lingua"
