@@ -7,7 +7,7 @@ class skh_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
 	/**
 	 * Add this to register in autoload
 	 */
-	public static $shortcode = 'skh_pb_blog';
+	public static $shortcode = 'et_pb_blog';
 	/**
 	 * Track if the module is currently rendering to prevent unnecessary rendering and recursion.
 	 *
@@ -18,7 +18,7 @@ class skh_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
 	function init() {
 		$this->name             = esc_html__( 'Blog Child', 'et_builder' );
 		$this->plural           = esc_html__( 'Blogs Child', 'et_builder' );
-		$this->slug             = 'skh_pb_blog';
+		$this->slug             = 'et_pb_blog';
 		$this->vb_support       = 'off';
 		$this->main_css_element = '%%order_class%% .et_pb_post';
 
