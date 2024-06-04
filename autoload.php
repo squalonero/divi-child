@@ -14,6 +14,7 @@ class skh_DiviChild_Autoload
         self::$iterator = new RecursiveIteratorIterator($dir);
         self::$divi_child_extra_modules_paths = [
             [
+                "path" => DIVI_CHILD_BP . "/includes/supreme-modules-pro-for-divi",
                 "iterator" => self::createIterator(DIVI_CHILD_BP . "/includes/supreme-modules-pro-for-divi"),
                 "classNameParser" => function ($fname)
                 {
@@ -27,12 +28,41 @@ class skh_DiviChild_Autoload
         add_filter('et_module_classes', [__CLASS__, 'divi_custom_module_class']);
         add_action('et_builder_ready', [__CLASS__, 'autoload_divi_child_extra_modules']);
         add_filter('et_module_classes', [__CLASS__, 'divi_extra_module_class']);
+
         self::register_divi_child_modules_js();
+        self::autoload();
+    }
+
+    private static function autoload()
+    {
+        //load everything else than divi modules
+        $iterator = self::createIterator(DIVI_CHILD_BP);
+        foreach ($iterator as $file)
+        {
+            $fname = $file->getFilename();
+            $fpath = $file->getPath();
+            $fileFolders = explode(DIRECTORY_SEPARATOR, $fpath);
+            if (
+                preg_match('%\.php$%', $fname)
+                && !in_array('templates', $fileFolders)
+                && !in_array('assets', $fileFolders)
+                && !in_array('helpers', $fileFolders)
+                && !str_contains($fpath, DIVI_CHILD_MODULES_PATH)
+                && !in_array(true, array_reduce(self::$divi_child_extra_modules_paths, function ($acc, $extra_module) use ($fpath)
+                {
+                    $acc[] = str_contains($fpath, $extra_module['path']);
+                    return $acc;
+                }, []))
+            )
+            {
+                require_once $fpath . DIRECTORY_SEPARATOR . $fname;
+            }
+        }
     }
 
     private static function createIterator($path)
     {
-        if(is_dir($path))
+        if (is_dir($path))
             return new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path));
         return null;
     }
@@ -75,6 +105,7 @@ class skh_DiviChild_Autoload
             function ($file, $fname, $fpath, $fileFolders, $className)
             {
                 $instance = new $className;
+                remove_shortcode($instance::$shortcode);
                 add_shortcode($instance::$shortcode, array($instance, '_shortcode_callback'));
             },
             function ($fname)
@@ -105,7 +136,7 @@ class skh_DiviChild_Autoload
     {
         foreach (self::$divi_child_extra_modules_paths as $extraModuleInfo)
         {
-            if(!$extraModuleInfo['iterator']) continue;
+            if (!$extraModuleInfo['iterator']) continue;
             self::process_divi_child_modules($extraModuleInfo['iterator'], function ($file, $fname, $fpath, $fileFolders, $className)
             {
                 include_once($file->getPathname());
@@ -139,7 +170,7 @@ class skh_DiviChild_Autoload
     {
         foreach (self::$divi_child_extra_modules_paths as $extraModuleInfo)
         {
-            if(!$extraModuleInfo['iterator']) continue;
+            if (!$extraModuleInfo['iterator']) continue;
             self::process_divi_child_modules($extraModuleInfo['iterator'], function ($file, $fname, $fpath, $fileFolders, $className)
             {
                 $instance = new $className;
@@ -148,6 +179,25 @@ class skh_DiviChild_Autoload
         }
     }
 
+    // static function divi_child_modules_assets(array $array)
+    // {
+    //     $assets_prefix    = et_get_dynamic_assets_path();
+    //     return array_merge([
+    //         'skh_blog_module' => [
+    //             'css' => [
+    //                 "{$assets_prefix}/css/blog.css",
+    //                 "{$assets_prefix}/css/posts.css",
+    //                 "{$assets_prefix}/css/post_formats.css",
+    //                 "{$assets_prefix}/css/overlay.css",
+    //                 "{$assets_prefix}/css/audio_player.css",
+    //                 "{$assets_prefix}/css/video_player.css",
+    //                 "{$assets_prefix}/css/slider_base.css",
+    //                 "{$assets_prefix}/css/slider_controls.css",
+    //                 "{$assets_prefix}/css/wp_gallery.css",
+    //             ]
+    //         ]
+    //     ], $array);
+    // }
 }
 
 
