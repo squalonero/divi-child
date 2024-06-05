@@ -6,6 +6,7 @@ button:focus-visible {
 
 #skip-to-content a,
 #skip-to-language a {
+  z-index: 99999999999;
   position: fixed;
   transform: translateY(-100%);
   left: 0;
