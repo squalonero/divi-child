@@ -9,6 +9,7 @@ class skh_DiviChild
     {
         require_once 'constants.php';
         add_action('wp_enqueue_scripts', [__CLASS__, 'enqueue_styles']);
+        add_action('wp_enqueue_scripts', [__CLASS__, 'enqueue_scripts']);
         add_action('init', [__CLASS__, 'autoload'], self::$load_priority);
         add_action('after_setup_theme', [__CLASS__, 'load_textdomain']);
     }
@@ -40,6 +41,14 @@ class skh_DiviChild
             array($parenthandle),
             $version
         );
+    }
+
+    static function enqueue_scripts()
+    {
+        $theme = wp_get_theme();
+        $version = defined('WP_DEBUG') && WP_DEBUG ? $theme->parent()->get('Version') . time() : $theme->parent()->get('Version');
+
+        wp_enqueue_script('skh-accessibility-js', DIVI_CHILD_ASSETS_URL . "/js/accessibility.js", ['jquery'], $version);
     }
 }
 
