@@ -1,7 +1,7 @@
 a:focus-visible,
 button:focus-visible {
   z-index: 9999;
-  border: 1px solid red;
+  border: 1px solid red !important;
 }
 
 #skip-to-content a,
