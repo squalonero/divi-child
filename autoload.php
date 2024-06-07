@@ -161,7 +161,10 @@ class skh_DiviChild_Autoload
                 $fpath = $file->getPath();
                 $handle = str_replace('.js', '-js', $fname);
                 $ver = defined('WP_DEBUG') && WP_DEBUG ? time() : DIVI_CHILD_VERSION;
-                wp_register_script("skh-divi-child-$handle", self::ASSETS_URL . "/js/$fname", ['jquery'], $ver);
+                add_action('wp_enqueue_scripts', function () use ($handle, $ver, $fname)
+                {
+                    wp_register_script("skh-divi-child-$handle", self::ASSETS_URL . "/js/$fname", ['jquery'], $ver);
+                });
             }
         }
     }
