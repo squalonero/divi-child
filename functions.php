@@ -12,6 +12,7 @@ class skh_DiviChild
         add_action('wp_enqueue_scripts', [__CLASS__, 'enqueue_scripts']);
         add_action('init', [__CLASS__, 'autoload'], self::$load_priority);
         add_action('after_setup_theme', [__CLASS__, 'load_textdomain']);
+        add_action('after_setup_theme', [__CLASS__, 'replace_divi_actions']);
     }
 
     static function autoload()
@@ -49,6 +50,11 @@ class skh_DiviChild
         $version = defined('WP_DEBUG') && WP_DEBUG ? $theme->parent()->get('Version') . time() : $theme->parent()->get('Version');
 
         wp_enqueue_script('skh-accessibility-js', DIVI_CHILD_ASSETS_URL . "/js/accessibility.js", ['jquery'], $version);
+    }
+
+    static function replace_divi_actions(){
+        remove_action('wp_head', 'et_add_viewport_meta');
+        add_action('wp_head', [skh_DiviOverrides::class, 'et_add_viewport_meta']);
     }
 }
 
