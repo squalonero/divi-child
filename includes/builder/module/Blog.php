@@ -16,8 +16,8 @@ class skh_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
 	protected static $rendering = false;
 
 	function init() {
-		$this->name             = esc_html__( 'Blog Child', 'et_builder' );
-		$this->plural           = esc_html__( 'Blogs Child', 'et_builder' );
+		$this->name             = esc_html__( 'Stack Blog', 'et_builder' );
+		$this->plural           = esc_html__( 'Stack Blogs', 'et_builder' );
 		$this->slug             = 'et_pb_blog';
 		$this->vb_support       = 'off';
 		$this->main_css_element = '%%order_class%% .et_pb_post';
