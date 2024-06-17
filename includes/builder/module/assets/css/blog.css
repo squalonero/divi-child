@@ -60,3 +60,35 @@ p:not(.has-background):last-of-type.skh-post-meta {
   background-color: red;
   color: #fff;
 }
+
+.skh_layout_fullwidth article {
+  background-color: #fff;
+  padding: 19px;
+}
+
+.skh-post-meta > span.published {
+  display: block;
+  margin-top: 15px;
+  color: var(--skh-grey-1);
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.skh-post-meta span.icon_calendar::before {
+  display: block;
+  margin-right: 10px;
+  color: var(--skh-grey-1);
+  content: "\e023";
+  font-family: ETmodules;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 0 0;
+  direction: ltr;
+}

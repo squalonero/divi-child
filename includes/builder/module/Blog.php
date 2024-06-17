@@ -1836,6 +1836,7 @@ class skh_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
 			// Module classname
 			$this->add_classname(
 				array(
+					'skh_layout_fullwidth',
 					'et_pb_posts',
 					"et_pb_bg_layout_{$background_layout}",
 					$this->get_text_orientation_classname(),
@@ -2016,19 +2017,19 @@ class skh_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
 				$post_meta_datas[] = et_get_safe_localization( sprintf( __( 'by %s', 'et_builder' ), '<span class="author vcard">' . et_pb_get_the_author_posts_link() . '</span>' ) );
 			}
 
-			if ( isset( $post_meta_remove_keys['show_date'] ) ) {
-				$post_meta_datas[] = et_get_safe_localization( sprintf( __( '%s', 'et_builder' ), '<span class="published">' . esc_html( get_the_date( $this->props['meta_date'] ) ) . '</span>' ) );
-			}
-
 			if ( isset( $post_meta_remove_keys['show_categories'] ) ) {
 				$post_meta_datas[] = et_builder_get_the_term_list( ', ' );
+			}
+
+			if ( isset( $post_meta_remove_keys['show_date'] ) ) {
+				$post_meta_datas[] = et_get_safe_localization( sprintf( __( '%s', 'et_builder' ), '<span class="published"><span class="icon icon_calendar"></span>' . esc_html( get_the_date( $this->props['meta_date'] ) ) . '</span>' ) );
 			}
 
 			if ( isset( $post_meta_remove_keys['show_comments'] ) ) {
 				$post_meta_datas[] = sprintf( esc_html( _nx( '%s Comment', '%s Comments', get_comments_number(), 'number of comments', 'et_builder' ) ), number_format_i18n( get_comments_number() ) );
 			}
 
-			$raw_value = implode( ' | ', $post_meta_datas );
+			$raw_value = implode( ' <br/> ', $post_meta_datas );
 		}
 
 		return $raw_value;
