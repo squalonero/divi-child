@@ -18,7 +18,13 @@ button:focus-visible {
   padding: 10px 0;
   font-size: 1rem;
 }
+
 #skip-to-content a:focus-visible,
 #skip-to-language a:focus-visible {
   transform: none;
+}
+
+#skip-to-content.skip-admin-bar a:not(:focus-visible),
+#skip-to-language.skip-admin-bar a:not(:focus-visible){
+    transform: translateY(calc(-100% - var(--wp-admin--admin-bar--height)));
 }
