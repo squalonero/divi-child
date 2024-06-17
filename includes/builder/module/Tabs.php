@@ -11,7 +11,7 @@ class skh_ET_Builder_Module_Tabs extends ET_Builder_Module {
 		$this->name             = esc_html__( 'Stack Tabs', 'et_builder' );
 		$this->plural           = esc_html__( 'Stack Tabs', 'et_builder' );
 		$this->slug             = 'et_pb_tabs';
-		$this->vb_support       = 'on';
+		$this->vb_support       = 'off';
 		$this->child_slug       = 'et_pb_tab';
 		$this->child_item_text  = esc_html__( 'Tab', 'et_builder' );
 		$this->main_css_element = '%%order_class%%.et_pb_tabs';
@@ -282,7 +282,7 @@ class skh_ET_Builder_Module_Tabs extends ET_Builder_Module {
 		);
 
 		$output = sprintf(
-			'<div%3$s class="%4$s" %7$s>
+			'<div%3$s class="%4$s" %7$s role="navigation">
 				%6$s
 				%5$s
 				%8$s
