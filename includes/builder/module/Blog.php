@@ -1648,7 +1648,7 @@ class skh_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
 							}
 						?>
 							<button class="skh-post-meta-share" post-id="<?= get_the_ID(); ?>">
-								<img alt="<?= __('Share', "stackhouse") ?>" src="/wp-content/themes/divi-child/includes/builder/module/assets/img/share-icon.png" />
+								<img alt="<?= __('Share', "stackhouse") ?>" src="/wp-content/themes/divi-child/includes/builder/module/assets/img/share-icon.png" aria-label="apri finesta esterna di condivisione"/>
 							</button>
 						</div>
 					<<?php echo et_core_intentionally_unescaped( $processed_header_level, 'fixed_string' ); ?> class="entry-title"><a href="<?php esc_url( the_permalink() ); ?>"><?php the_title(); ?></a></<?php echo et_core_intentionally_unescaped( $processed_header_level, 'fixed_string' ); ?>>
