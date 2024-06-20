@@ -1,0 +1,11 @@
+.div-aligned{
+  display: flex;
+ justify-content: flex-end;
+}
+
+.icon-aligned > a{
+  display: block;
+  height: fit-content;
+  width: fit-content;
+  margin-right: 30px !important;
+}

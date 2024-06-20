@@ -17,4 +17,5 @@
 
 /* MODULES STYLE */
 
-@import 'includes/builder/module/assets/css/blog.css'
+@import 'includes/builder/module/assets/css/blog.css';
+@import 'includes/builder/module/assets/css/icon.css';
