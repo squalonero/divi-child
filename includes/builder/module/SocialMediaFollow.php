@@ -339,7 +339,7 @@ class skh_ET_Builder_Module_SocialMediaFollow extends ET_Builder_Module {
 		);
 
 		$output = sprintf(
-			'<div role="navigation">
+			'<nav role="navigation">
 				<ul%3$s class="%2$s"%6$s%7$s>
 					%5$s
 					%4$s
