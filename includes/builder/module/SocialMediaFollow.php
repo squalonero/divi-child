@@ -7,7 +7,7 @@ class skh_ET_Builder_Module_SocialMediaFollow extends ET_Builder_Module {
 		$this->name            = esc_html__( 'Stack Social Media Follow', 'et_builder' );
 		$this->plural          = esc_html__( 'Social Media Follows', 'et_builder' );
 		$this->slug            = 'et_pb_social_media_follow';
-		$this->vb_support      = 'on';
+		$this->vb_support      = 'off';
 		$this->child_slug      = 'et_pb_social_media_follow_network';
 		$this->child_item_text = esc_html__( 'Social Network', 'et_builder' );
 
@@ -118,7 +118,7 @@ class skh_ET_Builder_Module_SocialMediaFollow extends ET_Builder_Module {
 						'default' => '14px',
 					),
 					'border_width'        => array(
-						'default' => '0px',
+						'default' => '1px',
 					),
 					'box_shadow'          => array(
 						'css' => array(
