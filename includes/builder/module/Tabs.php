@@ -282,7 +282,7 @@ class skh_ET_Builder_Module_Tabs extends ET_Builder_Module {
 		);
 
 		$output = sprintf(
-			'<div%3$s class="%4$s" %7$s role="navigation">
+			'<div%3$s class="%4$s" %7$s role="tablist">
 				%6$s
 				%5$s
 				%8$s
