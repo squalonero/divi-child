@@ -1886,7 +1886,8 @@ class skh_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
 	}
 
 	public function process_box_shadow( $function_name ) {
-		if ( isset( $this->props['fullwidth'] ) && $this->props['fullwidth'] === 'off' ) {
+		// MC: allow item box shadow even in fullwidth mode. Replaced container box shadow
+		// if ( isset( $this->props['fullwidth'] ) && $this->props['fullwidth'] === 'off' ) {
 			// Only override 'default' box shadow because we also defined
 			// box shadow settings for the image.
 			$this->advanced_fields['box_shadow']['default'] = array(
@@ -1896,9 +1897,9 @@ class skh_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
 					'overlay' => 'inset',
 				),
 			);
-		}
+		// }
 
-		parent::process_box_shadow( $function_name );
+		 parent::process_box_shadow( $function_name );
 	}
 
 	/**
