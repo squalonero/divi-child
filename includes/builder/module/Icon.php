@@ -396,7 +396,7 @@ class skh_ET_Builder_Module_Icon extends ET_Builder_Module {
 
 		if ( '' !== $url ) {
 			$output = sprintf(
-				'<a href="%1$s"%3$s %4$s>%2$s</a>',
+				'<a aria-label ="passa alla pagina di riferimento" role="button" href="%1$s"%3$s %4$s>%2$s</a>',
 				esc_url( $url ),
 				$output,
 				( 'on' === $url_new_window ? ' target="_blank"' : '' ),
