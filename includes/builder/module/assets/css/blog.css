@@ -16,6 +16,9 @@ p:not(.has-background):last-of-type.skh-post-meta {
   border: 1px solid var(--skh-light-blue);
   border-radius: 4px;
   padding: 6px 10px;
+  display: block;
+  width: fit-content;
+  max-width: 180px;
 }
 
 .skh-post-meta-wrapper {
