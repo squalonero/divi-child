@@ -18,7 +18,6 @@ p:not(.has-background):last-of-type.skh-post-meta {
   padding: 6px 10px;
   display: block;
   width: fit-content;
-  max-width: 180px;
 }
 
 .skh-post-meta-wrapper {
