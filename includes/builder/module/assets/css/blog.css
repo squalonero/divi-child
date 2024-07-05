@@ -18,6 +18,12 @@ p:not(.has-background):last-of-type.skh-post-meta {
   padding: 6px 10px;
   display: block;
   width: fit-content;
+  max-width: 270px;
+}
+
+div.post-content a.more-link{
+  margin-top: 20px !important;
+  display: block !important;
 }
 
 .skh-post-meta-wrapper {

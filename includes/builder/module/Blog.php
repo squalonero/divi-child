@@ -1681,7 +1681,7 @@ class skh_ET_Builder_Module_Blog extends ET_Builder_Module_Type_PostBased {
 					$more = $multi_view->render_element(
 						array(
 							'tag'            => 'a',
-							'content'        => esc_html__( 'read more', 'et_builder' ),
+							'content'        => esc_html__( 'read more', 'et_builder' ) . ' 🠆',
 							'attrs'          => array(
 								'class' => 'more-link',
 								'href'  => esc_url( get_permalink() ),
