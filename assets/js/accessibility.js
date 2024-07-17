@@ -10,5 +10,7 @@
         .not('.dsm_breadcrumbs_wrap button')
         .first().focus();
     });
+
+    $('.icon et_pb_with_border').role="button";
   });
 })(jQuery);
