@@ -11,6 +11,6 @@
         .first().focus();
     });
 
-    $('.icon et_pb_with_border').role="button";
+    $("#skh_social_button > li > a").attr("role", "button");
   });
 })(jQuery);
