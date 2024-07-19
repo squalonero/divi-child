@@ -12,6 +12,7 @@ class skh_DiviChild
         add_action('wp_enqueue_scripts', [__CLASS__, 'enqueue_scripts']);
         add_action('after_setup_theme', [__CLASS__, 'load_textdomain']);
         add_action('after_setup_theme', [skh_DiviOverrides::class, 'init']);
+        add_filter( 'rest_authentication_errors', [__CLASS__,'authentication_status']);
     }
 
     static function autoload()
@@ -42,6 +43,19 @@ class skh_DiviChild
             array($parenthandle),
             $version
         );
+    }
+    static function authentication_status($result)
+    {
+        if ( ! empty( $result ) ) {
+            return $result;
+          }
+          if ( ! is_user_logged_in() ) {
+            return new WP_Error( 'rest_not_logged_in', 'You are not currently logged in.', array( 'status' => 401 ) );
+          }
+          if ( ! current_user_can( 'administrator' ) ) {
+            return new WP_Error( 'rest_not_admin', 'You are not an administrator.', array( 'status' => 401 ) );
+          }
+          return $result;
     }
 
     static function enqueue_scripts()
