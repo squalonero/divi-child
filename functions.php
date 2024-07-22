@@ -13,6 +13,7 @@ class skh_DiviChild
         add_action('after_setup_theme', [__CLASS__, 'load_textdomain']);
         add_action('after_setup_theme', [skh_DiviOverrides::class, 'init']);
         add_filter( 'rest_authentication_errors', [__CLASS__,'authentication_status']);
+        add_filter('pre_get_posts',[__CLASS__,'searchfilter']); 
     }
 
     static function autoload()
@@ -65,6 +66,16 @@ class skh_DiviChild
 
         wp_enqueue_script('skh-accessibility-js', DIVI_CHILD_ASSETS_URL . "/js/accessibility.js", ['jquery'], $version);
     }
+
+    static function searchfilter($query) {
+ 
+        if ($query->is_search && !is_admin() ) {
+            $query->set('post_type',array('post','page'));
+        }
+     
+    return $query;
+    }
+
 }
 
 skh_DiviChild::init();
