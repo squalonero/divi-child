@@ -13,7 +13,7 @@ class skh_DiviChild
         add_action('after_setup_theme', [__CLASS__, 'load_textdomain']);
         add_action('after_setup_theme', [skh_DiviOverrides::class, 'init']);
         add_filter( 'rest_authentication_errors', [__CLASS__,'authentication_status']);
-        add_filter('pre_get_posts',[__CLASS__,'searchfilter']); 
+        add_filter('pre_get_posts',[__CLASS__,'searchfilter']);
     }
 
     static function autoload()
@@ -29,21 +29,14 @@ class skh_DiviChild
 
     static function enqueue_styles()
     {
-        $parenthandle = 'divi-style';
+        $parenthandle = 'divi-style-parent';
         $theme = wp_get_theme();
         $version = defined('WP_DEBUG') && WP_DEBUG ? $theme->parent()->get('Version') . time() : $theme->parent()->get('Version');
-        wp_enqueue_style(
-            $parenthandle,
-            get_template_directory_uri() . '/style.css',
-            array(), // if the parent theme code has a dependency, copy it to here
-            $version
-        );
-        wp_enqueue_style(
-            'divi-child-style',
-            get_stylesheet_uri(),
-            array($parenthandle),
-            $version
-        );
+        //dequeue gutemberg global styles
+        wp_dequeue_style( 'global-styles' );
+        wp_dequeue_style( 'wp-block-library' );
+        wp_dequeue_style( 'wp-block-library-theme' );
+        //DO NOT enqueue theme styles as Divi already enqueues them for the child theme
     }
     static function authentication_status($result)
     {
@@ -68,11 +61,11 @@ class skh_DiviChild
     }
 
     static function searchfilter($query) {
- 
+
         if ($query->is_search && !is_admin() ) {
             $query->set('post_type',array('post','page'));
         }
-     
+
     return $query;
     }
 
